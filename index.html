@@ -3,36 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="Basic web page template" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
     <title>Lab 0 Memory Game</title>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Welcome</h1>
-        </header>
-
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-        </nav>
-
-        <main>
-            <section>
-                <h2>Getting started</h2>
-                <p>This is a minimal, responsive HTML5 template. Replace this content with your own.</p>
-            </section>
-        </main>
-
-        <footer>
-            &copy; <span id="year"></span> Your Name
-        </footer>
+        <div id="startInput">
+            <h2>Please enter the number of buttons</h2>
+        </div>
+        <div id="gameContainer"></div>
     </div>
-
-    <script>
-        // small script to set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
