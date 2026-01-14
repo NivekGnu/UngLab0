@@ -6,12 +6,18 @@
 
     <link rel="stylesheet" href="css/style.css" />
 
+    <!-- scripts -->
+    <script src="js/GameManager.js" type="module" defer></script>
+
     <title>Lab 0 Memory Game</title>
 </head>
 <body>
     <div class="container">
-        <div id="startInput">
-            <h2>Please enter the number of buttons</h2>
+        <div id="menu">
+            <form id="formField" type="submit">
+                <input type="number" id="buttonCountInput" min="3" max="7"/>
+                <button id="startButton"></button>
+            </form>
         </div>
         <div id="gameContainer"></div>
     </div>

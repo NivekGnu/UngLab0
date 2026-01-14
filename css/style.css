@@ -2,4 +2,35 @@
 
 body {
     font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#menu {
+    text-align: center;
+    margin: 20px;
+}
+
+#buttonCountInput {
+    height: 30px;
+    width: 250px;
+    text-align: center;
+}
+
+form button {
+    height: 30px;
+    width: 50px;
+}
+
+#gameContainer {
+    justify-content: center;
+    width: 100vw;
+    height: calc(90vh - 100px);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
