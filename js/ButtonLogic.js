@@ -17,7 +17,7 @@ export class Button {
             margin: 10px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 45px;
+            font-size: 40px;
             margin: 0;
         `;
         this.element.addEventListener("click", () => onClick(this.id));
