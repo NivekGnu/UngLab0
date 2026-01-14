@@ -42,19 +42,31 @@ class GameManager {
                 (id) => this.handleButtonClick(id)
             );
             button.setLabel(i + 1);
+            button.element.style.pointerEvents = "none";
             this.buttons.push(button);
         }
 
         this.shuffleTextAnimation();
 
-        this.shuffleTimeout = setTimeout(() => {
-            this.stopShuffleAnimation();
-            this.scatterButtons();
-            document.getElementById("instructionMessage").innerText = STRINGS.INSTRUCTION_MESSAGE;
+        setTimeout(() => {
+            this.scrambleSequence(this.numberOfButtons);
         }, this.numberOfButtons * 1000);
     }
 
-    scatterButtons() {
+    scrambleSequence(timeLeft) {
+        if (timeLeft > 0) {
+            this.scatterButtons(false); 
+
+            setTimeout(() => {
+                this.scrambleSequence(timeLeft - 1);
+            }, 2000);
+        } else {
+            this.stopShuffleAnimation();
+            this.enableButtons();
+        }
+    }
+
+    scatterButtons(hideLabel = true) {
         const gameContainer = document.getElementById("gameContainer");
         const containerWidth = gameContainer.clientWidth;
         const containerHeight = gameContainer.clientHeight;
@@ -62,7 +74,6 @@ class GameManager {
         this.buttons.forEach(button => {
             button.element.style.position = "absolute";
 
-            // Ensure buttons stay within container bounds
             const maxX = containerWidth - 200;
             const maxY = containerHeight - 60;
 
@@ -70,7 +81,17 @@ class GameManager {
             const y = Math.max(0, Math.floor(Math.random() * maxY));
 
             button.moveButton(x, y);
+            if (hideLabel) {
+                button.element.innerText = STRINGS.HIDE_TEXT;
+            }
+        });
+    }
+
+    enableButtons() {
+        document.getElementById("instructionMessage").innerText = STRINGS.INSTRUCTION_MESSAGE;
+        this.buttons.forEach(button => {
             button.element.innerText = STRINGS.HIDE_TEXT;
+            button.element.style.pointerEvents = "auto";
         });
     }
 

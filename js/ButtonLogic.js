@@ -12,7 +12,7 @@ export class Button {
         this.element.style.cssText = `
             position: relative;
             background-color: ${this.color};
-            width: 180px;
+            width: 200px;
             height: 50px;
             margin: 10px;
             cursor: pointer;
